@@ -1,0 +1,34 @@
+# Docker compose version https://docs.docker.com/compose/compose-file
+version: "3.8"
+
+# Docker services
+services:
+  web:
+    env_file: .env
+    container_name: ${CONTAINER_NAME}
+    image: ${IMAGE_NAME}
+    build:
+      context: code
+      dockerfile: ../docker/Dockerfile
+      args:
+        CLEAN_YARN_CACHE: "true"
+        ENABLE_TYPESCRIPT: ${ENABLE_TYPESCRIPT}
+        HOST: ${VUE_UI_HOST}
+        PROJECT_PATH: ${PROJECT_PATH}
+        NODE_VERSION: ${NODE_VERSION}
+    networks: 
+      local:
+        aliases:
+          - ${NETWORK}
+    ports:
+      - ${VUE_UI_PORT}:${VUE_UI_PORT}
+      - 8080:8080
+    volumes:
+      - ./code:${PROJECT_PATH}:consistent
+    # Override Dockerfile default command 
+    command: ["vue", "ui", "--headless", "--port", "${VUE_UI_PORT}", "--host", "${VUE_UI_HOST}"]
+
+# Docker networks
+networks: 
+  local:
+    name: ${NETWORK}
