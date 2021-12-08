@@ -26,7 +26,7 @@ These instructions will get you through the bootstrap phase of creating a contai
 This GitHub template will setup a Docker image with the following packages
 
 - [Node (Alpine)](https://hub.docker.com/_/node)
-- [Yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
 - [Vue CLI](https://cli.vuejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 
@@ -84,11 +84,12 @@ Your **.env** needs to have the following environment variables.
 | 3  	| CONTAINER_NAME    	| Docker container name                         	| website.local 	|
 | 4  	| IMAGE_NAME        	| Image tag                                     	| website       	|
 | 5  	| NODE_VERSION      	| Node Docker Version                           	| latest        	|
-| 6  	| PROJECT_PATH      	| Project directory in Docker image & container 	| website       	|
-| 7  	| ENABLE_TYPESCRIPT 	| Add TypeScript support in Docker image        	| true          	|
-| 8  	| NETWORK           	| Docker container network                      	| front-end     	|
-| 9  	| VUE_UI_PORT       	| Port used for the UI server                   	| 8000          	|
-| 10 	| VUE_UI_HOST       	| Host used for the UI server                   	| 0.0.0.0       	|
+| 6  	| VUE_CLI_VERSION      	| Vue Cli Docker Version                           	| latest        	|
+| 7  	| PROJECT_PATH      	| Project directory in Docker image & container 	| website       	|
+| 8  	| ENABLE_TYPESCRIPT 	| Add TypeScript support in Docker image        	| true          	|
+| 9  	| NETWORK           	| Docker container network                      	| front-end     	|
+| 10  	| VUE_UI_PORT       	| Port used for the UI server                   	| 8000          	|
+| 11 	| VUE_UI_HOST       	| Host used for the UI server                   	| 0.0.0.0       	|
 
 #### <ins>Running Docker container</ins>
 
@@ -105,7 +106,7 @@ Creating volume "website.local_node_modules" with default driver
 Building web
 Step 1/11 : FROM node:14.11.0-alpine3.12
 ...
-Successfully tagged luisaveiro/website:latest
+Successfully tagged ramonov/website:latest
 WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 Creating website.local ... done
 Attaching to website.local
@@ -151,7 +152,7 @@ Done in 15.19s.
 🎉  Successfully created project website.
 👉  Get started with the following commands:
 
- $ yarn serve
+ $ npm serve
 ```
 
 </details>
@@ -183,7 +184,7 @@ This GitHub template includes `Makefile`. A Makefile is a file containing a set 
 | # 	| Command               	| Description                                             	|
 |---	|-----------------------	|---------------------------------------------------------	|
 | 1 	| make clean            	| Remove project Docker container, image, network, volume 	|
-| 2 	| make clean-yarn-cache 	| Clean Yarn global cache                                 	|
+| 2 	| make clean-npm-cache 	    | Clean npm global cache                                 	|
 | 3 	| make dev-rebuild      	| Rebuild Docker image and container with Docker compose  	|
 | 4 	| make dev-start        	| Start Docker container with Docker compose              	|
 | 5 	| make image            	| Build Docker image                                      	|
@@ -286,7 +287,7 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 ---
 
 <p align="center">
-  <a href="http://github.com/luisaveiro" target="_blank">GitHub</a> •
-  <a href="https://uk.linkedin.com/in/luisaveiro" target="_blank">LinkedIn</a> •
-  <a href="https://twitter.com/luisdeaveiro" target="_blank">Twitter</a>
+  <a href="https://github.com/ramonov" target="_blank">GitHub</a> •
+  <a href="https://www.linkedin.com/in/rajeebshakya/" target="_blank">LinkedIn</a> •
+  <a href="https://twitter.com/rajshakya2000" target="_blank">Twitter</a>
 </p>
