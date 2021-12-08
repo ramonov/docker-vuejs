@@ -16,6 +16,7 @@ services:
         HOST: ${VUE_UI_HOST}
         PROJECT_PATH: ${PROJECT_PATH}
         NODE_VERSION: ${NODE_VERSION}
+        VUE_CLI_VERSION: ${VUE_CLI_VERSION}
     networks: 
       local:
         aliases:
