@@ -6,9 +6,9 @@ clean:
 	docker rmi ${IMAGE_NAME}
 	docker network rm ${NETWORK}
 
-# Clean Yarn global cache
-clean-yarn-cache:
-	docker exec -t -i ${CONTAINER_NAME} yarn cache clean
+# Clean Npm global cache
+clean-npm-cache:
+	docker exec -t -i ${CONTAINER_NAME} npm cache clean --force
 
 # Rebuild Docker image and container with Docker compose
 dev-rebuild:
